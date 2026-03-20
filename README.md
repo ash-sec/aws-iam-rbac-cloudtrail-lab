@@ -45,7 +45,7 @@ The environment consists of three IAM users assigned to distinct roles:
 ## IAM Configuration
 
 ### Users
-![IAM Users](images/users-clean.png)
+![IAM Users](images/users.png)
 
 Three IAM users were created to represent different roles within the environment.
 
@@ -62,12 +62,16 @@ Users were organised into groups to simplify permission management:
 ---
 
 ### User → Group Mapping
-![User Group Mapping](images/user-group.png)
 
-Each user was assigned to a group:
-- dev-user → Developers  
-- auditor-user → Auditors  
-- admin-user → AdminGroup  
+#### Developer Mapping
+![Dev User Group](images/dev-user-group.png)
+
+The **dev-user** is assigned to the **Developers** group.
+
+#### Auditor Mapping
+![Auditor User Group](images/auditor-user-group.png)
+
+The **auditor-user** is assigned to the **Auditors** group.
 
 ---
 
@@ -130,9 +134,9 @@ The **dev-user** successfully created an S3 bucket, validating that permissions 
 ---
 
 ### Bucket Verification
-![Bucket List](images/buckets.png)
+![S3 Buckets](images/buckets.png)
 
-The newly created bucket is visible in the S3 dashboard.
+The created buckets are visible in the S3 dashboard, confirming successful resource creation.
 
 ---
 
@@ -146,14 +150,14 @@ CloudTrail logs all activity, including both successful and failed operations.
 ---
 
 ### Successful Event Details
-![Success Event Details](images/success-event.png)
+![Success Event](images/success-event.png)
 
 Logs show details of a successful **CreateBucket** action performed by dev-user.
 
 ---
 
 ### Access Denied Event Details
-![Denied Event Details](images/denied-event.png)
+![Denied Event](images/denied-event.png)
 
 Logs capture the **AccessDenied** error when auditor-user attempted the same action.
 
@@ -161,7 +165,7 @@ Logs capture the **AccessDenied** error when auditor-user attempted the same act
 
 ## Security Principles Applied
 
-- **Least Privilege** — Users are granted only the permissions required  
+- **Least Privilege** — Users are granted only the permissions required for their role  
 - **Role-Based Access Control (RBAC)** — Permissions are assigned through groups  
 - **Audit Logging** — All activity is recorded using CloudTrail  
 - **Access Validation** — Both successful and denied actions were tested  
@@ -170,4 +174,4 @@ Logs capture the **AccessDenied** error when auditor-user attempted the same act
 
 ## Conclusion
 
-This project demonstrates a practical implementation of AWS IAM security principles, including **RBAC**, **least privilege enforcement**, and **real-time activity monitoring using CloudTrail**. The use of both successful and denied test cases provides strong validation of access control mechanisms.
+This project demonstrates a practical implementation of AWS IAM security principles, including **RBAC**, **least privilege enforcement**, and **activity monitoring using CloudTrail**. The combination of successful and denied test cases provides strong validation of access control mechanisms in a real-world cloud environment.
