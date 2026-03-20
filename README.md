@@ -150,7 +150,7 @@ CloudTrail logs all activity, including both successful and failed operations.
 ---
 
 ### Successful Event Details
-![Success Event](success-event.png)
+![Success Event](success.png)
 
 Logs show details of a successful **CreateBucket** action performed by dev-user.
 
