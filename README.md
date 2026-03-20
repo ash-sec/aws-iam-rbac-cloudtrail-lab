@@ -45,7 +45,7 @@ The environment consists of three IAM users assigned to distinct roles:
 ## IAM Configuration
 
 ### Users
-![IAM Users](images/users.png)
+![IAM Users](images/users-clean.png)
 
 Three IAM users were created to represent different roles within the environment.
 
