@@ -45,14 +45,14 @@ The environment consists of three IAM users assigned to distinct roles:
 ## IAM Configuration
 
 ### Users
-![IAM Users](images/users.png)
+![IAM Users](users.png)
 
 Three IAM users were created to represent different roles within the environment.
 
 ---
 
 ### Groups
-![IAM Groups](images/groups.png)
+![IAM Groups](groups.png)
 
 Users were organised into groups to simplify permission management:
 - AdminGroup  
@@ -64,19 +64,19 @@ Users were organised into groups to simplify permission management:
 ### User → Group Mapping
 
 #### Developer Mapping
-![Dev User Group](images/dev-user-group.png)
+![Dev User Group](dev-user-group.png)
 
 The **dev-user** is assigned to the **Developers** group.
 
 #### Auditor Mapping
-![Auditor User Group](images/auditor-user-group.png)
+![Auditor User Group](auditor-user-group.png)
 
 The **auditor-user** is assigned to the **Auditors** group.
 
 ---
 
 ### Permissions (Developers)
-![Developer Permissions](images/dev-permissions.png)
+![Developer Permissions](dev-permissions.png)
 
 The **Developers group** was assigned:
 - Custom policy: AllowCreateS3Bucket  
@@ -86,7 +86,7 @@ The **Developers group** was assigned:
 ---
 
 ### Permissions (Auditors)
-![Auditor Permissions](images/auditor-permissions.png)
+![Auditor Permissions](auditor-permissions.png)
 
 The **Auditors group** was restricted to:
 - AmazonS3ReadOnlyAccess  
@@ -96,7 +96,7 @@ This ensures no write operations can be performed.
 ---
 
 ### Custom Policy (S3 Bucket Creation)
-![Custom Policy JSON](images/custom-policy.png)
+![Custom Policy](custom-policy.png)
 
 A custom IAM policy was created to allow:
 - `s3:CreateBucket`  
@@ -107,7 +107,7 @@ This enforces controlled write access for developers only.
 ---
 
 ### AWS Managed Policy (Read-Only Access)
-![Read Only Policy](images/readonly-policy.png)
+![Read Only Policy](readonly-policy.png)
 
 The auditor role uses an AWS-managed policy allowing:
 - `s3:Get*`  
@@ -120,21 +120,21 @@ This restricts the role to read-only operations.
 ## Testing and Validation
 
 ### Denied Action (Auditor User)
-![Access Denied](images/access-denied.png)
+![Access Denied](access-denied.png)
 
 The **auditor-user** attempted to create an S3 bucket and received an **AccessDenied** error, confirming that write access is restricted.
 
 ---
 
 ### Successful Action (Developer User)
-![Successful Bucket Creation](images/success.png)
+![Successful Bucket Creation](success.png)
 
 The **dev-user** successfully created an S3 bucket, validating that permissions were correctly applied.
 
 ---
 
 ### Bucket Verification
-![S3 Buckets](images/buckets.png)
+![S3 Buckets](buckets.png)
 
 The created buckets are visible in the S3 dashboard, confirming successful resource creation.
 
@@ -143,21 +143,21 @@ The created buckets are visible in the S3 dashboard, confirming successful resou
 ## CloudTrail Monitoring
 
 ### Event History
-![CloudTrail Events](images/cloudtrail-events.png)
+![CloudTrail Events](cloudtrail-events.png)
 
 CloudTrail logs all activity, including both successful and failed operations.
 
 ---
 
 ### Successful Event Details
-![Success Event](images/success-event.png)
+![Success Event](success-event.png)
 
 Logs show details of a successful **CreateBucket** action performed by dev-user.
 
 ---
 
 ### Access Denied Event Details
-![Denied Event](images/denied-event.png)
+![Denied Event](denied-event.png)
 
 Logs capture the **AccessDenied** error when auditor-user attempted the same action.
 
