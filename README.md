@@ -1,5 +1,17 @@
 # AWS IAM RBAC CloudTrail Lab
 
+## Table of Contents
+- [Overview](#overview)
+- [Objectives](#objectives)
+- [Architecture](#architecture)
+- [IAM Configuration](#iam-configuration)
+- [Testing and Validation](#testing-and-validation)
+- [CloudTrail Monitoring](#cloudtrail-monitoring)
+- [Security Principles Applied](#security-principles-applied)
+- [Screenshots](#screenshots)
+- [Conclusion](#conclusion)
+
+
 ## Overview
 This project demonstrates the implementation of Role-Based Access Control (RBAC) in AWS using IAM, with least privilege principles applied to S3 access. It includes validation of permissions through real test scenarios and monitoring of activity using AWS CloudTrail.
 
